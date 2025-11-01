@@ -21,9 +21,15 @@
             <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
         </nav>
         <!-- Menu Burger Button -->
-        <div class="burger-menu" id="burger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="burger-menu" id="burger-menu" role="button"
+            aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+        <div class="icon" id="icon" aria-hidden="true">
+            <span class="arm arm--a"></span> <!-- 0°   -->
+            <span class="arm arm--b"></span> <!-- 72°  -->
+            <span class="arm arm--c"></span> <!-- 144° -->
+            <span class="arm arm--d"></span> <!-- 216° -->
+            <span class="arm arm--e"></span> <!-- 288° -->
+        </div>
         </div>
         <!-- Mobile Navigation Menu -->
         <nav class="mobile-nav" id="mobile-nav">
@@ -69,9 +75,13 @@
         <figure><img src="IMAGES/Projets/villette/VILLETTE_affiche-empereur.jpg" alt="Affiche publicitaire pour le film Le dernier Empereur"></figure>
         <figure><img src="IMAGES/Projets/villette/VILLETTE_affiche-bain.jpg" alt="Affiche publicitaire pour le film Le Grand bain"></figure>
     </div>
-    <figure class="col-4-7"><img src="IMAGES/Projets/villette/VILL_programme.jpg" alt="Brochure carrée du programme"></figure>
-    <figure><img src="IMAGES/Projets/villette/VILLETTE-sweat.jpg" alt="Sweats"></figure>
-    <figure><img src="IMAGES/Projets/villette/VILLETTE_transats.jpg" alt="Transats"></figure>
+    <div class="argumentation">
+    <figure class="col-2-10"><img src="IMAGES/Projets/villette/VILL_programme.jpg" alt="Brochure carrée du programme"></figure>
+    <figure class="col-2-10"><img src="IMAGES/Projets/villette/VILLETTE-sweat.jpg" alt="Sweats"></figure>
+    </div>
+    <div class="tryptique">
     <figure><img src="IMAGES/Projets/villette/VILLETTE-badge.jpg" alt="Badge rouge"></figure>
+    <figure><img src="IMAGES/Projets/villette/VILLETTE_transats.jpg" alt="Transats"></figure>
+    </div>
 </body>
 </html>

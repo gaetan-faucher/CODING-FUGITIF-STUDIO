@@ -23,9 +23,15 @@
             <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
         </nav>
         <!-- Menu Burger Button -->
-        <div class="burger-menu" id="burger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
+        <div class="burger-menu" id="burger-menu" role="button"
+            aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+        <div class="icon" id="icon" aria-hidden="true">
+            <span class="arm arm--a"></span> <!-- 0°   -->
+            <span class="arm arm--b"></span> <!-- 72°  -->
+            <span class="arm arm--c"></span> <!-- 144° -->
+            <span class="arm arm--d"></span> <!-- 216° -->
+            <span class="arm arm--e"></span> <!-- 288° -->
+        </div>
         </div>
         <!-- Mobile Navigation Menu -->
         <nav class="mobile-nav" id="mobile-nav">

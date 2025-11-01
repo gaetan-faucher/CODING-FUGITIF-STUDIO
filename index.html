@@ -21,12 +21,20 @@
             </div>
             <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
         </nav>
-        <!-- Menu Burger Button -->
-        <div class="burger-menu" id="burger-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
+
+        <!-- Bouton Menu (astérisque 5 branches → croix) -->
+        <div class="burger-menu" id="burger-menu" role="button"
+             aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+            <div class="icon" id="icon" aria-hidden="true">
+                <span class="arm arm--a"></span> <!-- 0° -->
+                <span class="arm arm--b"></span> <!-- 72° -->
+                <span class="arm arm--c"></span> <!-- 144° -->
+                <span class="arm arm--d"></span> <!-- 216° -->
+                <span class="arm arm--e"></span> <!-- 288° -->
+            </div>
         </div>
-        <!-- Mobile Navigation Menu -->
+
+        <!-- Menu mobile -->
         <nav class="mobile-nav" id="mobile-nav">
             <ul>
                 <li><a href="index.html"><h3>WORK</h3></a></li>
@@ -35,6 +43,7 @@
             </ul>
         </nav>
     </header>
+
     <div class="progressive-blur">
         <div class="blur-1"></div>
         <div class="blur-2"></div>
@@ -45,9 +54,10 @@
         <div class="blur-7"></div>
         <div class="blur-8"></div>
     </div>
+
     <section class="top-page">
         <nav class="nav2">
-            <h1>Work*</h1>
+            <h1>Work</h1>
             <li><a href="index.html"><h3>WORK</h3></a></li>
             <li><a href="about.html"><h3>ABOUT</h3></a></li>
         </nav>
@@ -237,7 +247,5 @@
         </div>
     </footer>
 
-
 </body>
-
 </html>
