@@ -1,79 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
-    <title>GAËTAN FAUCHER</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <div id="custom-cursor" class="custom-cursor"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
+  <title>GAËTAN FAUCHER</title>
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+
+  <!-- (Optionnel) Icônes -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
-    <header class="header">
-        <nav class="nav1">
-            <li class="home-link"><a href="index.html"><h3>GAËTAN FAUCHER</h3></a></li>
-            <div class="bouton-logo">
-                <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de fugitif studio">
-            </div>
-            <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
-        </nav>
-        <!-- Menu Burger Button -->
-        <div class="burger-menu" id="burger-menu" role="button"
-            aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
-        <div class="icon" id="icon" aria-hidden="true">
-            <span class="arm arm--a"></span> <!-- 0°   -->
-            <span class="arm arm--b"></span> <!-- 72°  -->
-            <span class="arm arm--c"></span> <!-- 144° -->
-            <span class="arm arm--d"></span> <!-- 216° -->
-            <span class="arm arm--e"></span> <!-- 288° -->
-        </div>
-        </div>
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html"><h3>WORK</h3></a></li>
-                <li><a href="about.html"><h3>ABOUT</h3></a></li>
-                <li><a href="contact.html"><h3>CONTACT</h3></a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="progressive-blur">
-        <div class="blur-1"></div>
-        <div class="blur-2"></div>
-        <div class="blur-3"></div>
-        <div class="blur-4"></div>
-        <div class="blur-5"></div>
-        <div class="blur-6"></div>
-        <div class="blur-7"></div>
-        <div class="blur-8"></div>
+  <!-- Curseur personnalisé (doit être dans le body, pas dans le head) -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+
+  <header class="header">
+    <nav class="nav1" aria-label="Navigation principale">
+      <!-- Lien accueil -->
+      <a class="home-link" href="index.html"><h3>GAËTAN FAUCHER</h3></a>
+
+      <!-- Logo centré (positionné via CSS existant) -->
+      <div class="bouton-logo">
+        <img class="logo"
+             src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png"
+             alt="logo de Fugitif Studio">
+      </div>
+
+      <!-- Lien contact -->
+      <a class="bouton-contact" href="contact.html"><h3>CONTACT</h3></a>
+    </nav>
+
+    <!-- Bouton Burger (astérisque 5 branches → croix) -->
+    <div class="burger-menu" id="burger-menu" role="button"
+         aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+      <div class="icon" id="icon" aria-hidden="true">
+        <span class="arm arm--a"></span> <!-- 0°   -->
+        <span class="arm arm--b"></span> <!-- 72°  -->
+        <span class="arm arm--c"></span> <!-- 144° -->
+        <span class="arm arm--d"></span> <!-- 216° -->
+        <span class="arm arm--e"></span> <!-- 288° -->
+      </div>
     </div>
-    <section class="top-project-solar">
-        <div class="parallax-bg" style="background-image: url('IMAGES/Projets/solar/SOLAR_COUV-affiche-4-3.jpg');"></div> <!-- Code parallax -->
-        <nav class="entertainement">
-            <h1>Solar Flow</h1>
-            <div class="project-category">
-                <h3>CAMPAGNE <br> <span class="delete-txt">PUBLICITAIRE</span></h3>
-                <h3>CONSOMMATION / MODE DE VIE</h3>
-                <h3>SAYWATT</h3>
-            </div>
-        </nav>
-    </section>
-    <section class="argumentation">
-        <h3>CONTEXT<br><br>
-            In a world where energy feels distant and technical, Solar Flow brings power back home. Saywatt introduces a flexible solar panel for apartment living, transforming everyday windows into quiet sources of autonomy—flowing with light, movement, and possibility.
-        </h3>
-        <h3>DIRECTION<br><br>
-            A visual energy stream weaves through urban interiors, bending with walls, frames, and habits. The campaign embraces volume and depth to echo Solar Flow’s modular nature. The design makes domestic space feel alive—lit by flexibility, shaped by empowerment.
-        </h3>
-    </section>
-    <div class="tryptique">
-        <figure><img class="big-visual" src="IMAGES/Projets/solar/SOLAR_affiche-4-3.jpg" alt="Affiche publicitaire au format quatre par trois"></figure>
-        <figure><img class="big-visual" src="IMAGES/Projets/solar/SOLAR_affiche-sucette-rue.jpg" alt="Affiche publicitaire au format quatre par trois"></figure>
-        <figure><img class="close-up" src="IMAGES/Projets/solar/SOLAR_panneau-solaire-flexible.jpg" alt="panneau solaire flexible"></figure>
-        <figure><img class="close-up" src="IMAGES/Projets/solar/SOLAR_panneau-solaire-flexible-ciel.jpg" alt="panneau solaire flexible"></figure>
+
+    <!-- Menu mobile -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+      <ul>
+        <li><a href="index.html"><h3>WORK</h3></a></li>
+        <li><a href="about.html"><h3>ABOUT</h3></a></li>
+        <li><a href="contact.html"><h3>CONTACT</h3></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="progressive-blur" aria-hidden="true">
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+    <div class="blur-3"></div>
+    <div class="blur-4"></div>
+    <div class="blur-5"></div>
+    <div class="blur-6"></div>
+    <div class="blur-7"></div>
+    <div class="blur-8"></div>
+  </div>
+
+  <section class="top-project-solar">
+    <!-- Parallax BG : compatible data-* ; même visuel desktop/mobile (pas de variante dédiée fournie) -->
+    <div
+      class="parallax-bg"
+      data-bg-desktop="IMAGES/Projets/solar/SOLAR_COUV-affiche-4-3.jpg"
+      data-bg-mobile="IMAGES/Projets/solar/SOLAR_COUV-affiche-4-3.jpg"
+      style="background-image: url('IMAGES/Projets/solar/SOLAR_COUV-affiche-4-3.jpg');">
     </div>
+
+    <nav class="entertainement" aria-label="En-tête projet">
+      <h1>Solar Flow</h1>
+      <div class="project-category">
+        <h3>CAMPAGNE <br> <span class="delete-txt">PUBLICITAIRE</span></h3>
+        <h3>CONSOMMATION / MODE DE VIE</h3>
+        <h3>SAYWATT</h3>
+      </div>
+    </nav>
+  </section>
+
+  <section class="argumentation">
+    <h3>
+      CONTEXT<br><br>
+      In a world where energy feels distant and technical, Solar Flow brings power back home. Saywatt introduces a flexible solar panel for apartment living, transforming everyday windows into quiet sources of autonomy—flowing with light, movement, and possibility.
+    </h3>
+    <h3>
+      DIRECTION<br><br>
+      A visual energy stream weaves through urban interiors, bending with walls, frames, and habits. The campaign embraces volume and depth to echo Solar Flow’s modular nature. The design makes domestic space feel alive—lit by flexibility, shaped by empowerment.
+    </h3>
+  </section>
+
+  <div class="tryptique">
+    <figure><img class="big-visual" src="IMAGES/Projets/solar/SOLAR_affiche-4-3.jpg" alt="Affiche publicitaire au format quatre par trois"></figure>
+    <figure><img class="big-visual" src="IMAGES/Projets/solar/SOLAR_affiche-sucette-rue.jpg" alt="Affiche publicitaire au format quatre par trois"></figure>
+    <figure><img class="close-up" src="IMAGES/Projets/solar/SOLAR_panneau-solaire-flexible.jpg" alt="panneau solaire flexible"></figure>
+    <figure><img class="close-up" src="IMAGES/Projets/solar/SOLAR_panneau-solaire-flexible-ciel.jpg" alt="panneau solaire flexible"></figure>
+  </div>
+
 </body>
 </html>

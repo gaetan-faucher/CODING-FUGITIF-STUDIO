@@ -1,75 +1,94 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
-    <title>GAËTAN FAUCHER</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <div id="custom-cursor" class="custom-cursor"></div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
+  <title>GAËTAN FAUCHER</title>
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+
+  <!-- (Optionnel) Icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    
-    <header class="header">
-        <nav class="nav1">
-            <li class="home-link"><a href="index.html"><h3>GAËTAN FAUCHER</h3></a></li>
-            <a href="index.html">
-                <div class="bouton-logo">
-                    <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de fugitif studio">
-                </div>
-            </a>
-            <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
-        </nav>
-        <!-- Menu Burger Button -->
-        <div class="burger-menu" id="burger-menu" role="button"
-            aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
-        <div class="icon" id="icon" aria-hidden="true">
-            <span class="arm arm--a"></span> <!-- 0°   -->
-            <span class="arm arm--b"></span> <!-- 72°  -->
-            <span class="arm arm--c"></span> <!-- 144° -->
-            <span class="arm arm--d"></span> <!-- 216° -->
-            <span class="arm arm--e"></span> <!-- 288° -->
-        </div>
-        </div>
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html"><h3>WORK</h3></a></li>
-                <li><a href="about.html"><h3>ABOUT</h3></a></li>
-                <li><a href="contact.html"><h3>CONTACT</h3></a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="progressive-blur">
-        <div class="blur-1"></div>
-        <div class="blur-2"></div>
-        <div class="blur-3"></div>
-        <div class="blur-4"></div>
-        <div class="blur-5"></div>
-        <div class="blur-6"></div>
-        <div class="blur-7"></div>
-        <div class="blur-8"></div>
+
+  <!-- Curseur personnalisé (doit être dans le body) -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+
+  <header class="header">
+    <nav class="nav1" aria-label="Navigation principale">
+      <!-- Lien accueil -->
+      <a class="home-link" href="index.html"><h3>GAËTAN FAUCHER</h3></a>
+
+      <!-- Logo centré (positionné via CSS existant) -->
+      <a href="index.html" class="bouton-logo" aria-label="Retour à l’accueil">
+        <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de Fugitif Studio">
+      </a>
+
+      <!-- Lien contact -->
+      <a class="bouton-contact" href="contact.html"><h3>CONTACT</h3></a>
+    </nav>
+
+    <!-- Bouton Burger (astérisque 5 branches → croix) -->
+    <div class="burger-menu" id="burger-menu" role="button"
+         aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+      <div class="icon" id="icon" aria-hidden="true">
+        <span class="arm arm--a"></span> <!-- 0°   -->
+        <span class="arm arm--b"></span> <!-- 72°  -->
+        <span class="arm arm--c"></span> <!-- 144° -->
+        <span class="arm arm--d"></span> <!-- 216° -->
+        <span class="arm arm--e"></span> <!-- 288° -->
+      </div>
     </div>
-    <section class="top-page">
-        <nav class="nav2">
-            <h1>Contact</h1>
-            <li><a href="index.html"><h3>WORK</h3></a></li>
-            <li><a href="about.html"><h3>ABOUT</h3></a></li>
-        </nav>
-    </section>
-    <section class="contact-link">
-        <h3>
-            <span class="highlight"> MAIL : </span> gaetanfaucherpr0@gmail.com <br>
-            <span class="highlight"> LINKEDIN : </span> <a href="www.linkedin.com/in/gaetanfaucher20"> my profile <i class="fa-regular fa-arrow-up-right-from-square fa-xs"></i></a><br>
-            <span class="highlight"> INSTAGRAM : </span> <a href="https://www.instagram.com/fugitif_studio/"> @fugitif_studio </a><br>
-            <!-- <span class="highlight"> YOUTUBE : </span> <a href="https://www.youtube.com/@fugitif_studio"> @fugitif_studio </a> -->
-        </h3>
-        <div class="profil-picture">
-        <img src="IMAGES/Contact/profil-picture_shooting-studio.jpg" alt="Photo de profil dans un studio photo">
-        </div>
-    </section>
+
+    <!-- Menu mobile -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+      <ul>
+        <li><a href="index.html"><h3>WORK</h3></a></li>
+        <li><a href="about.html"><h3>ABOUT</h3></a></li>
+        <li><a href="contact.html"><h3>CONTACT</h3></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="progressive-blur" aria-hidden="true">
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+    <div class="blur-3"></div>
+    <div class="blur-4"></div>
+    <div class="blur-5"></div>
+    <div class="blur-6"></div>
+    <div class="blur-7"></div>
+    <div class="blur-8"></div>
+  </div>
+
+  <section class="top-page">
+    <nav class="nav2" aria-label="Navigation secondaire">
+      <h1>Contact</h1>
+      <a href="index.html"><h3>WORK</h3></a>
+      <a href="about.html"><h3>ABOUT</h3></a>
+    </nav>
+  </section>
+
+  <section class="contact-link">
+    <h3>
+      <span class="highlight"> MAIL : </span> gaetanfaucherpr0@gmail.com <br>
+      <span class="highlight"> LINKEDIN : </span>
+      <a href="https://www.linkedin.com/in/gaetanfaucher20" target="_blank" rel="noopener">
+        my profile <i class="fa-regular fa-arrow-up-right-from-square fa-xs" aria-hidden="true"></i>
+      </a><br>
+      <span class="highlight"> INSTAGRAM : </span>
+      <a href="https://www.instagram.com/fugitif_studio/" target="_blank" rel="noopener">@fugitif_studio</a><br>
+      <!-- <span class="highlight"> YOUTUBE : </span> <a href="https://www.youtube.com/@fugitif_studio"> @fugitif_studio </a> -->
+    </h3>
+
+    <div class="profil-picture">
+      <img src="IMAGES/Contact/profil-picture_shooting-studio.jpg" alt="Photo de profil dans un studio photo">
+    </div>
+  </section>
 
 </body>
 </html>

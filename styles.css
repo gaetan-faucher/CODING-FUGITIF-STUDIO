@@ -45,16 +45,14 @@ h3 { font-family: 'Switzer-Regular', sans-serif; font-weight: 400; font-size: cl
 h4 { font-family: 'Switzer-Regular', sans-serif; font-weight: 400; font-size: clamp(8px,1vw,12px); }
 figure h4 { font-weight: 400; font-size: clamp(8px,1vw,12px); margin-bottom: 10px; }
 
-a { text-decoration: none; color: black; }
-a:hover { color: red; transition: .2s ease-in-out; }
+a { text-decoration: none; color: black; transition: color .2s ease-in-out; }
+a:hover { color: red; }
+
 .highlight { color: red; }
 
 header.header { z-index: 50; display: flex; position: fixed; width: 100%; height: 74px; top: 0; flex-shrink: 0; }
 
-.progressive-blur {
-    z-index: 10; pointer-events: none; background-image: none; flex-flow: column; height: 10em;
-    position: fixed; inset: 0% 0% auto;
-}
+.progressive-blur { z-index: 10; pointer-events: none; background-image: none; flex-flow: column; height: 10em; position: fixed; inset: 0% 0% auto; }
 .blur-1{pointer-events:none;z-index:1;-webkit-backdrop-filter:blur(.01px);backdrop-filter:blur(.01px);background-color:rgba(255,255,255,.01);border-radius:0;height:100%;position:absolute;inset:0;mask-image:linear-gradient(rgba(0,0,0,0) 62.5%,#000 75%,#000 87.5%,rgba(0,0,0,0) 100%);}
 .blur-2{pointer-events:none;z-index:2;-webkit-backdrop-filter:blur(.28125px);backdrop-filter:blur(.28125px);background-color:rgba(255,255,255,.01);border-radius:0;height:100%;position:absolute;inset:0;mask-image:linear-gradient(rgba(0,0,0,0) 50%,#000 62.5%,#000 75%,rgba(0,0,0,0) 87.5%);}
 .blur-3{pointer-events:none;z-index:3;-webkit-backdrop-filter:blur(.5625px);backdrop-filter:blur(.5625px);background-color:rgba(255,255,255,.01);border-radius:0;height:100%;position:absolute;inset:0;mask-image:linear-gradient(rgba(0,0,0,0) 37.5%,#000 50%,#000 62.5%,rgba(0,0,0,0) 75%);}
@@ -78,22 +76,25 @@ nav.nav1 .bouton-logo { position: absolute; left: 50%; transform: translateX(-50
 /* Masque toute ancienne icône à barres */
 .burger-menu .bar { display: none !important; }
 
-/* Conteneur bouton (déjà présent dans tes MQ) */
+/* Conteneur bouton — base desktop (caché) */
+/* MODIF: forme ronde (pas d'impact visuel en desktop car display:none) */
 .burger-menu {
   display: none;
   flex-direction: column;
   justify-content: space-between;
   align-self: center;
   width: 30px;
-  height: 15px;
-  z-index: 100; /* bouton au-dessus du menu */
+  /* height: 15px;  ← supprimé */
+  aspect-ratio: 1 / 1;          /* NEW */
+  border-radius: 50%;           /* NEW */
+  z-index: 100;
   margin: 2vw;
 }
 
 /* Icône compacte + variables d’animation */
 .icon{
   position: relative;
-  width: 15px;                 /* taille ✱ */
+  width: 15px;
   height: 15px;
   z-index: 1;
 
@@ -106,30 +107,28 @@ nav.nav1 .bouton-logo { position: absolute; left: 50%; transform: translateX(-50
   --ease-fast: cubic-bezier(.4,0,.2,1);
 }
 
-/* micro twist optionnel (garde si tu veux le léger “souffle”) */
+/* micro twist optionnel */
 @keyframes microTwist { 0%{transform:rotate(0)} 50%{transform:rotate(5deg)} 100%{transform:rotate(0)} }
 .icon.twist { animation: microTwist .24s ease; }
 
 /* État ouvert (×) : orientation neutre + on révèle la barre entière (clip 0%) */
 .burger-menu.active .icon { --phi: 0deg; --clip: 0%; }
 
-/* BRAS : même formule de transform partout, on ne change jamais l’origine */
+/* BRAS : même formule de transform partout */
 .arm{
   --r: 0deg;
   position: absolute;
   top: 50%; left: 50%;
-  width: var(--len-open);       /* pleine longueur tout le temps */
+  width: var(--len-open);
   height: 2px;
   background: #000;
   border-radius: 999px;
 
-  /* Centre permanent : pas de “saut” aller/retour */
   transform-origin: 50% 50%;
   transform: translate(-50%, -50%) rotate(calc(var(--r) + var(--phi))) scaleX(1);
 
-  /* Astuce propreté : on “masque” la moitié gauche pour créer un rayon unique en ✱ */
   clip-path: polygon(var(--clip) 0, 100% 0, 100% 100%, var(--clip) 100%);
-  -webkit-clip-path: polygon(var(--clip) 0, 100% 0, 100% 100%, var(--clip) 100%); /* Safari */
+  -webkit-clip-path: polygon(var(--clip) 0, 100% 0, 100% 100%, var(--clip) 100%);
   will-change: transform, clip-path;
 
   transition:
@@ -145,23 +144,20 @@ nav.nav1 .bouton-logo { position: absolute; left: 50%; transform: translateX(-50
 .arm--d { --r: 216deg; }
 .arm--e { --r: 288deg; }
 
-/* Ouverture (×) : a/c = barres complètes + léger accent, les autres disparaissent proprement */
+/* Ouverture (×) : a/c = barres complètes + léger accent */
 .burger-menu.active .arm--a,
 .burger-menu.active .arm--c{
   transform: translate(-50%, -50%) rotate(calc(var(--r) + var(--phi))) scaleX(1.04);
 }
-
-/* / et \ exacts */
 .burger-menu.active .arm--a { --r:  45deg; }
 .burger-menu.active .arm--c { --r: 135deg; }
 
-/* On efface b/d/e sans “flash” : ils gardent le clip à 50% pendant l’extinction */
+/* Extinction propre b/d/e */
 .burger-menu.active .arm--b,
 .burger-menu.active .arm--d,
 .burger-menu.active .arm--e{
   opacity: 0;
   transform: translate(-50%, -50%) rotate(calc(var(--r) + var(--phi))) scaleX(0.8);
-  /* (optionnel) petit délai pour laisser a/c s’installer avant de disparaître */
   transition-delay: 30ms;
 }
 
@@ -169,62 +165,51 @@ nav.nav1 .bouton-logo { position: absolute; left: 50%; transform: translateX(-50
   .icon, .arm { transition: none; animation: none; }
 }
 
-/* Lock scroll quand menu actif (déjà dans ton CSS global) */
+/* Lock scroll quand menu actif */
 .mobile-nav { display: none; }
 body.no-scroll { overflow: hidden; }
 
 /* ========================= */
 
-section.top-page {
-    margin-top: 74px;
-    border-bottom: 1px solid rgb(220, 220, 220);
-    background-color: #fff;
-}
+section.top-page { margin-top: 74px; border-bottom: 1px solid rgb(220, 220, 220); background-color: #fff; }
 
 /* Parallax */
-.parallax-bg{
-  position:absolute; top:0; left:0; width:100%; height:100%;
-  background-size:cover; background-position:center; z-index:1; transform:translateZ(0); will-change:transform;
+.parallax-bg{ position:absolute; top:0; left:0; width:100%; height:100%; background-size:cover; background-position:center; z-index:1; transform:translateZ(0); will-change:transform; }
+
+/* Base commune à toutes les pages “top-project-*” */
+:is(.top-project-solar,
+    .top-project-memoire,
+    .top-project-worth,
+    .top-project-habit,
+    .top-project-toh,
+    .top-project-gigantisme,
+    .top-project-villette,
+    .top-project-jeux,
+    .top-project-virgil,
+    .top-project-lama) {
+  display:flex;
+  justify-content:flex-end;
+  align-items:end;
+  height: calc(var(--vh, 1vh) * 100);
+  position:relative;
+  overflow:hidden;
+  background-color: rgb(220,220,220);
 }
 
-.top-project-solar,
-.top-project-memoire,
-.top-project-worth,
-.top-project-habit,
-.top-project-toh,
-.top-project-gigantisme,
-.top-project-villette,
-.top-project-jeux,
-.top-project-virgil,
-.top-project-lama{
-  display:flex; justify-content:flex-end; align-items:end;
-  height: calc(var(--vh, 1vh) * 100);
-  position:relative; overflow:hidden; background-color: rgb(220,220,220);
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-}
-.top-project-solar,
-.top-project-memoire,
-.top-project-villette,
-.top-project-virgil,
-.top-project-lama{ color:#fff; }
+/* Variantes texte blanc */
+:is(.top-project-solar,
+    .top-project-memoire,
+    .top-project-villette,
+    .top-project-virgil,
+    .top-project-lama) { color:#fff; }
 
 nav.nav2{ align-items:end; justify-content:space-between; padding: 0 25px 20px; }
 
-.entertainement{
-  flex-direction:column; width:100%; position:relative; z-index:2;
-  padding: 0 20px 20px;
-}
+.entertainement{ flex-direction:column; width:100%; position:relative; z-index:2; padding: 0 20px 20px; }
 
-.project-category{
-  display:flex; align-items:end; justify-content:space-between;
-  padding-top:3vw; gap:10px; width:100%; max-width:700px;
-}
+.project-category{ display:flex; align-items:end; justify-content:space-between; padding-top:3vw; gap:10px; width:100%; max-width:700px; }
 
-a:hover{ color:rgb(0, 0, 0); transition:.2s ease-in-out; }
-
-.argumentation{
-  display:grid; grid-template-columns:repeat(10,1fr); gap:50px; margin:150px 25px;
-}
+.argumentation{ display:grid; grid-template-columns:repeat(10,1fr); gap:50px; margin:150px 25px; }
 .argumentation figure{ width:100%; }
 .argumentation figure img{ width:100%; height:auto; display:block; object-fit:contain; }
 figure.col-2-5{ grid-column:2/5; }
@@ -260,16 +245,12 @@ figure.col-1-12{ grid-column:1/-1; }
 .projets h2{ line-height:.85; }
 
 .projets-container{ display:flex; flex-direction:column; }
-.projets-container.hovering .projet:not(:hover)::before{
-  content:""; position:absolute; inset:0; background-color:rgba(255,255,255,.7); pointer-events:none; transition:opacity .3s ease; opacity:1; z-index:2;
-}
+.projets-container.hovering .projet:not(:hover)::before{ content:""; position:absolute; inset:0; background-color:rgba(255,255,255,.7); pointer-events:none; transition:opacity .3s ease; opacity:1; z-index:2; }
 .projet{ position:relative; transition: transform .3s ease; }
 .projets-container.hovering .projet:not(:hover)::before{ opacity:1; }
 .projets-container .projet::before{ opacity:0; transition: opacity .3s ease; }
 
-.solar,.memoire,.performance,.toh,.habit,.gigantisme,.villette,.vacances,.virgil,.lama{
-  display:flex; border-bottom:1px solid rgb(220,220,220);
-}
+.solar,.memoire,.performance,.toh,.habit,.gigantisme,.villette,.vacances,.virgil,.lama{ display:flex; border-bottom:1px solid rgb(220,220,220); }
 
 .description{ display:flex; align-items:flex-end; width:50%; margin:25px; gap:25px; flex-wrap:wrap; }
 .ajout-txt{ display:none; }
@@ -277,17 +258,11 @@ figure.col-1-12{ grid-column:1/-1; }
 .aperçu{ display:flex; height:70px; width:50%; margin:25px; gap:15px; align-self:center; justify-content:space-evenly; }
 .aperçu img{ max-height:70px; }
 
-.footer{
-  position:relative; display:flex; align-items:center; justify-content:center; height:100vh; top:0; flex-shrink:0;
-  background-image:url('IMAGES/Footer/WhatsApp\ Image\ 2025-06-28\ at\ 00.48.34.jpeg'); background-size:cover; background-position:center; background-repeat:no-repeat; color:#fff; overflow:hidden;
-}
+.footer{ position:relative; display:flex; align-items:center; justify-content:center; height:100vh; top:0; flex-shrink:0; background-image:url('IMAGES/Footer/WhatsApp\ Image\ 2025-06-28\ at\ 00.48.34.jpeg'); background-size:cover; background-position:center; background-repeat:no-repeat; color:#fff; overflow:hidden; }
 .footer a{ color:#fff; }
 .footer a:hover{ color:#fff; transition:.2s ease-in; }
 
-.footer-content{
-  position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center;
-  gap:30px; max-width:90vw; margin:0 auto; padding:20px 0;
-}
+.footer-content{ position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:30px; max-width:90vw; margin:0 auto; padding:20px 0; }
 .footer-content a:hover{ color: rgb(255,0,0); }
 .footer-group{ display:flex; justify-content:space-between; width:100%; }
 
@@ -299,6 +274,7 @@ figure.col-1-12{ grid-column:1/-1; }
 #current-time{ font-family:'Switzer-Regular', sans-serif; font-weight:400; font-size:clamp(10px,2vw,13px); color:#fff; }
 .clock{ text-align:left; flex:1; color:#fff; }
 
+.links1 ul { list-style: none; margin: 0; padding: 0; }
 .links1{ flex-direction:column; flex:1; text-align:right; }
 .links3{ display:flex; flex-direction:row; gap:20px; justify-content:center; align-items:flex-end; list-style:none; padding:0; }
 
@@ -320,31 +296,79 @@ figure.col-1-12{ grid-column:1/-1; }
   .header:hover{ background-color: rgba(255,255,255,0); }
   nav.nav1 .bouton-logo{ position:relative; left:0; transform: translateX(0); }
 
-  /* bouton burger */
+  /* bouton burger — visible en mobile, forme ronde */
   .burger-menu{
-    display:flex; position:relative; background-color: rgba(255,255,255,.5);
-    backdrop-filter: blur(5px); margin-top:3.5vw; padding:0px 0px; border-radius:20px;
-    box-shadow:0 2px 4px rgba(0,0,0,.15); width:45px; height:40px; align-items:center; justify-content:center;
+    display: flex;                /* visible en mobile */
+    position: relative;
+    background-color: rgba(255,255,255,.5);
+    backdrop-filter: blur(5px);
+    margin-top: 3.5vw;
+    padding: 0px 0px;
+    border-radius: 50%;           /* MODIF */
+    box-shadow: 0 2px 4px rgba(0,0,0,.15);
+    width: 45px;
+    /* height: 40px;  ← supprimé */
+    aspect-ratio: 1 / 1;          /* MODIF */
+    align-items: center;
+    justify-content: center;
     z-index: 100;
   }
-  /* ancienne icône (si présente dans le HTML), neutralisée plus haut */
 
   nav.nav1 h3, nav.nav2 h3, .home-link, .bouton-contact{ display:none; }
 
-  .mobile-nav{
-    display:flex; flex-direction:column; justify-content:center; align-items:center;
-    position:fixed; top:0; right:0; width:100%; height:0; z-index:10; overflow:hidden;
-    transition: height .6s ease, backdrop-filter .6s ease, background-color .6s ease;
-  }
-  .mobile-nav.active{
-    height: calc(var(--vh, 1vh) * 100);
-    backdrop-filter: blur(10px);
-    background-color: rgba(255,255,255,0);
-  }
-  .mobile-nav ul{ list-style:none; width:100%; text-align:center; }
-  .mobile-nav ul li{ margin:20px 0; }
-  .mobile-nav ul li a{ color:#000; }
-  .mobile-nav ul li a:hover{ color:red; }
+/* Menu mobile : plein écran, pas de slide, fondu + décalage éléments (entrée/sortie) */
+.mobile-nav{
+  display: flex;                         /* visible en mobile */
+  position: fixed;
+  inset: 0;                              /* plein écran */
+  z-index: 10;
+  align-items: center;                   /* centré verticalement */
+  justify-content: center;               /* centré horizontalement */
+  opacity: 0;                            /* caché par défaut */
+  pointer-events: none;                  /* non cliquable tant que caché */
+  background-color: rgba(255,255,255,0); /* fond transparent conservé */
+  backdrop-filter: blur(0px);            /* pas de blur tant que caché */
+  transition: opacity .35s ease, backdrop-filter .35s ease;
+}
+
+.mobile-nav.active{
+  opacity: 1;                            /* fondu d’apparition */
+  pointer-events: auto;                  /* redevient cliquable */
+  backdrop-filter: blur(10px);           /* flou quand ouvert */
+}
+
+/* Liste : pile verticale centrée */
+.mobile-nav ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;                             /* espace entre liens */
+}
+
+/* Items : transition d’opacité (au lieu d’animations keyframes) */
+.mobile-nav ul li{
+  opacity: 0;                            /* point de départ */
+  transition: opacity .35s ease;
+  will-change: opacity;
+}
+
+/* ÉTAT OUVERT — apparition en cascade (1 → 2 → 3) */
+.mobile-nav.active ul li{ opacity: 1; }
+.mobile-nav.active ul li:nth-child(1){ transition-delay: .05s; }
+.mobile-nav.active ul li:nth-child(2){ transition-delay: .15s; }
+.mobile-nav.active ul li:nth-child(3){ transition-delay: .25s; }
+
+/* ÉTAT FERMETURE — disparition fluide en cascade inverse (3 → 2 → 1) */
+.mobile-nav:not(.active) ul li:nth-child(1){ transition-delay: .25s; }
+.mobile-nav:not(.active) ul li:nth-child(2){ transition-delay: .15s; }
+.mobile-nav:not(.active) ul li:nth-child(3){ transition-delay: .05s; }
+
+/* Style des liens conservé */
+.mobile-nav ul li a{ color:#000; }
+.mobile-nav ul li a:hover{ color:red; }
 
   .top-project-memoire .parallax-bg{ background-position:80% center; }
   .top-project-solar   .parallax-bg{ background-position:90% center; }
@@ -364,17 +388,10 @@ figure.col-1-12{ grid-column:1/-1; }
 
   .project-detail{ grid-column:2 / span 4; }
 
-  .focus{
-    grid-template-columns: repeat(5,1fr); gap:15px; margin:15px;
-    flex-direction:column; align-items:center; justify-content:center;
-    padding:0 3.5vw; box-sizing:border-box; max-width:100%; overflow-x:hidden;
-  }
+  .focus{ grid-template-columns: repeat(5,1fr); gap:15px; margin:15px; flex-direction:column; align-items:center; justify-content:center; padding:0 3.5vw; box-sizing:border-box; max-width:100%; overflow-x:hidden; }
   .container{ margin:80px 2vw 2vw; }
 
-  .all-links{
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    max-width:100%; margin:0 auto; padding:0 clamp(10px,4vw,25px); box-sizing:border-box;
-  }
+  .all-links{ display:flex; flex-direction:column; align-items:center; justify-content:center; max-width:100%; margin:0 auto; padding:0 clamp(10px,4vw,25px); box-sizing:border-box; }
   .all-links>*{ margin-bottom:25px; width:100%; text-align:center; }
 
   .focus-text{ text-align:center; }
@@ -386,10 +403,7 @@ figure.col-1-12{ grid-column:1/-1; }
   .contact-link h3{ width:100%; margin:0 2vw 0 0; }
   .contact-link img{ width:100%; }
 
-  .bottom-footer h1{
-    font-size: clamp(24vw, 26vw, 28vw);
-    word-break: break-word; line-height:1; overflow-wrap: break-word; text-align:center;
-  }
+  .bottom-footer h1{ font-size: clamp(24vw, 26vw, 28vw); word-break: break-word; line-height:1; overflow-wrap: break-word; text-align:center; }
 }
 
 @media (max-width: 480px){
@@ -397,7 +411,13 @@ figure.col-1-12{ grid-column:1/-1; }
   header.header{ height:65px; }
   nav.nav1{ padding:3vw; height: initial; }
   .home-link{ display:none; }
-  .burger-menu{ margin-right:3.5vw; }
+
+  /* ajustement très petits écrans — on ne touche pas au ratio, on retire la hauteur */
+  .burger-menu{
+    margin-right: 3.5vw;
+    /* height: 37px; ← supprimé */
+  }
+
   nav.nav2{ padding-left:3.5vw; padding-right:3.5vw; padding-bottom:3.5vw; }
 
   .top-project-memoire .parallax-bg{ background-position:65% center; }
@@ -407,9 +427,7 @@ figure.col-1-12{ grid-column:1/-1; }
 
   .entertainement{ padding-left:3.5vw; padding-right:3.5vw; padding-bottom:3.5vw; }
 
-  .description{
-    flex-direction:column; align-items:flex-start; margin:0 0 3.5vw 0; gap:.5vw; width:100%;
-  }
+  .description{ flex-direction:column; align-items:flex-start; margin:0 0 3.5vw 0; gap:.5vw; width:100%; }
 
   .ajout-txt{ display:contents; }
   .delete-txt{ display:none; }
@@ -417,9 +435,7 @@ figure.col-1-12{ grid-column:1/-1; }
   .aperçu{ justify-content:space-between; margin:0 0 .5vw 0; width:100%; height:60px; }
   .aperçu img{ max-height:none; width:60px; }
 
-  .solar a,.memoire a,.performance a,.habit a,.toh a,.gigantisme a,.villette a,.vacances a,.virgil a,.lama a{
-    flex-direction:column; margin:3.5vw;
-  }
+  .solar a,.memoire a,.performance a,.habit a,.toh a,.gigantisme a,.villette a,.vacances a,.virgil a,.lama a{ flex-direction:column; margin:3.5vw; }
 
   .argumentation{ gap:3.5vw; margin:25vw 3.5vw; flex-direction:column; }
   .argumentation h3{ grid-column:span 5; }
@@ -431,4 +447,9 @@ figure.col-1-12{ grid-column:1/-1; }
   .blank{ margin:9vw 3.5vw; }
   .container{ margin:80px 3.5vw 3.5vw; }
   .contact-link h3{ margin:0 3.5vw 0 0; }
+}
+
+@media (hover: none) {
+  .projets-container.hovering::before,
+  .projet:hover::before { opacity: 0 !important; }
 }

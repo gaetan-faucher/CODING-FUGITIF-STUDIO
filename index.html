@@ -1,251 +1,260 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
-    <title>GAËTAN FAUCHER</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
-    <div id="custom-cursor" class="custom-cursor"></div>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
+  <title>GAËTAN FAUCHER</title>
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 
 <body>
 
-    <header class="header">
-        <nav class="nav1">
-            <li class="home-link"><a href="index.html"><h3>GAËTAN FAUCHER</h3></a></li>
-            <div class="bouton-logo">
-                <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de fugitif studio">
-            </div>
-            <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
-        </nav>
+  <!-- Curseur personnalisé (doit être dans le body) -->
+  <div id="custom-cursor" class="custom-cursor"></div>
 
-        <!-- Bouton Menu (astérisque 5 branches → croix) -->
-        <div class="burger-menu" id="burger-menu" role="button"
-             aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
-            <div class="icon" id="icon" aria-hidden="true">
-                <span class="arm arm--a"></span> <!-- 0° -->
-                <span class="arm arm--b"></span> <!-- 72° -->
-                <span class="arm arm--c"></span> <!-- 144° -->
-                <span class="arm arm--d"></span> <!-- 216° -->
-                <span class="arm arm--e"></span> <!-- 288° -->
-            </div>
-        </div>
+  <header class="header">
+    <nav class="nav1" aria-label="Navigation principale">
+      <!-- Lien accueil -->
+      <a class="home-link" href="index.html"><h3>GAËTAN FAUCHER</h3></a>
 
-        <!-- Menu mobile -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html"><h3>WORK</h3></a></li>
-                <li><a href="about.html"><h3>ABOUT</h3></a></li>
-                <li><a href="contact.html"><h3>CONTACT</h3></a></li>
-            </ul>
-        </nav>
-    </header>
+      <!-- Logo centré (positionné via CSS existant) -->
+      <div class="bouton-logo">
+        <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de Fugitif Studio">
+      </div>
 
-    <div class="progressive-blur">
-        <div class="blur-1"></div>
-        <div class="blur-2"></div>
-        <div class="blur-3"></div>
-        <div class="blur-4"></div>
-        <div class="blur-5"></div>
-        <div class="blur-6"></div>
-        <div class="blur-7"></div>
-        <div class="blur-8"></div>
+      <!-- Lien contact -->
+      <a class="bouton-contact" href="contact.html"><h3>CONTACT</h3></a>
+    </nav>
+
+    <!-- Bouton Menu (astérisque 5 branches → croix) -->
+    <div class="burger-menu" id="burger-menu" role="button"
+         aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+      <div class="icon" id="icon" aria-hidden="true">
+        <span class="arm arm--a"></span> <!-- 0° -->
+        <span class="arm arm--b"></span> <!-- 72° -->
+        <span class="arm arm--c"></span> <!-- 144° -->
+        <span class="arm arm--d"></span> <!-- 216° -->
+        <span class="arm arm--e"></span> <!-- 288° -->
+      </div>
     </div>
 
-    <section class="top-page">
-        <nav class="nav2">
-            <h1>Work</h1>
+    <!-- Menu mobile -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+      <ul>
+        <li><a href="index.html"><h3>WORK</h3></a></li>
+        <li><a href="about.html"><h3>ABOUT</h3></a></li>
+        <li><a href="contact.html"><h3>CONTACT</h3></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="progressive-blur" aria-hidden="true">
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+    <div class="blur-3"></div>
+    <div class="blur-4"></div>
+    <div class="blur-5"></div>
+    <div class="blur-6"></div>
+    <div class="blur-7"></div>
+    <div class="blur-8"></div>
+  </div>
+
+  <section class="top-page">
+    <nav class="nav2" aria-label="Navigation secondaire">
+      <h1>Work</h1>
+      <a href="index.html"><h3>WORK</h3></a>
+      <a href="about.html"><h3>ABOUT</h3></a>
+    </nav>
+  </section>
+
+  <section class="projets">
+    <div class="blank">
+      <h3 class="download">
+        <a href="Download/FAUCHER_Gaetan_PORTFOLIO.pdf" download="FAUCHER_Gaetan_PORTFOLIO.pdf">DOWNLOAD THE PORTFOLIO</a><br>
+        <a href="Download/FAUCHER_Gaetan_CV.pdf" download="FAUCHER_Gaetan_CV.pdf">DOWNLOAD THE CURRICULUM VITAE</a><br>
+        <a href="Download/FAUCHER_Gaetan.zip" download="FAUCHER_Gaetan.zip">DOWNLOAD ALL</a>
+      </h3>
+    </div>
+
+    <div class="projets-container">
+      <div class="projet villette">
+        <a href="villette.html">
+          <div class="description">
+            <h2>CINEMA VILLETTE</h2>
+            <h3>VISUAL IDENTITY</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_villette_1.jpg" alt="Aperçu du site internet du cinéma en plein air de la Villette">
+            <img src="IMAGES/vignette/VIGNETTE_villette_2.jpg" alt="Programmation du cinéma en plein air de la Villette">
+            <img src="IMAGES/vignette/VIGNETTE_villette_3.jpg" alt="tote bag">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet habit">
+        <a href="habit.html">
+          <div class="description">
+            <h2>HABIT</h2>
+            <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE-habit_1.jpg" alt="Affiche publicitaire">
+            <img src="IMAGES/vignette/VIGNETTE-habit_2.jpg" alt="Icône du logo">
+            <img src="IMAGES/vignette/VIGNETTE-habit_3.jpg" alt="Typographie HABIT">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet gigantisme">
+        <a href="gigantisme.html">
+          <div class="description">
+            <h2>GIGANTISM</h2>
+            <h3>ARTITSTIC DIRECTION & EDITION</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_gigantisme_1.jpg" alt="Couvertures du kit">
+            <img src="IMAGES/vignette/VIGNETTE_gigantisme_2.jpg" alt="Intérieur d'un livret et son marque-page">
+            <img src="IMAGES/vignette/VIGNETTE_gigantisme_3.jpg" alt="Vue d'ensemble du kit éditorial">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet lama">
+        <a href="lama.html">
+          <div class="description">
+            <h2>LAMA</h2>
+            <h3>GRAPHIC DESIGN</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_lama_1.jpg" alt="La planète Mars">
+            <img src="IMAGES/vignette/VIGNETTE_lama_2.jpg" alt="Focus technique sur le robot LAMA au Recto du cartel explicatif du Robot LAMA">
+            <img src="IMAGES/vignette/VIGNETTE_lama_3.jpg" alt="Focus sur le robot LAMA au Verso du cartel explicatif du Robot LAMA">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet memoire">
+        <a href="memoire.html">
+          <div class="description">
+            <h2>THESIS</h2>
+            <h3>STUDY RESEARCH & GRAPHIC DESIGN</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_memoire_1.jpg" alt="Couverture des trois éditions du mémoire sur le design circulaire dans la mode">
+            <img src="IMAGES/vignette/VIGNETTE_memoire_2.jpg" alt="Architecture de l'édition du mémoire sur le design circulaire dans la mode">
+            <img src="IMAGES/vignette/VIGNETTE_memoire_3.jpg" alt="Intérieur et rabat du mémoire sur le design circulaire dans la mode">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet performance">
+        <a href="worth.html">
+          <div class="description">
+            <h2>WORTH</h2>
+            <h3>GRAPHIC DESIGN & PHOTOGRAPHY</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_performance_1.jpg" alt="Ticket de caisse">
+            <img src="IMAGES/vignette/VIGNETTE_performance_2.jpg" alt="Colonne d'exposition vue en contre-plongée">
+            <img src="IMAGES/vignette/VIGNETTE_performance_3.jpg" alt="Colonne d'exposition baignée d'une lumière divinatoire">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet toh">
+        <a href="toh.html">
+          <div class="description">
+            <h2>HOLLAND</h2>
+            <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_toh_3.jpg" alt="Cartes de visite">
+            <img src="IMAGES/vignette/VIGNETTE_toh_1.jpg" alt="Affiche format sucette">
+            <img src="IMAGES/vignette/VIGNETTE_toh_2.jpg" alt="Mockup du compte Instagram">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet virgil">
+        <a href="virgil.html">
+          <div class="description">
+            <h2>VIRGIL</h2>
+            <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_virgil_1.jpg" alt="Publicité format 4x3 dans les couloirs du métros Parisien">
+            <img src="IMAGES/vignette/VIGNETTE_virgil_2.jpg" alt="Publicité format sucette">
+            <img src="IMAGES/vignette/VIGNETTE_virgil_3.jpg" alt="Étiquette en tissus de la collection Émergence">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet solar">
+        <a href="solar.html">
+          <div class="description">
+            <h2>SOLAR FLOW</h2>
+            <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE-solar_1.jpg" alt="Affiche campagne publicitaire">
+            <img src="IMAGES/vignette/VIGNETTE-solar_2.jpg" alt="logo de solar flow">
+            <img src="IMAGES/vignette/VIGNETTE-solar_3.jpg" alt="panneau solaire flexible">
+          </div>
+        </a>
+      </div>
+
+      <div class="projet vacances">
+        <a href="jeux.html">
+          <div class="description">
+            <h2>6 VACANCES</h2>
+            <h3>GRAPHIC DESIGN & NATURAL INK PRODUCTION</h3>
+          </div>
+          <div class="aperçu">
+            <img src="IMAGES/vignette/VIGNETTE_jeux_1.jpg" alt="Déballage du jeux de cartes">
+            <img src="IMAGES/vignette/VIGNETTE_jeux_2.jpg" alt="Aperçu aléatoire des cartes du jeux des 6 Vacances">
+            <img src="IMAGES/vignette/VIGNETTE_jeux_3.jpg" alt="Pioche du jeux des 6 Vacances">
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <ul class="links3">
+        <li><a href="https://www.linkedin.com/in/gaetanfaucher20" target="_blank" rel="noopener"><h3>IN</h3></a></li>
+        <li><a href="https://www.instagram.com/fugitif_studio" target="_blank" rel="noopener"><h3>IG</h3></a></li>
+        <li><a href="https://www.behance.net/gatanfaucher" target="_blank" rel="noopener"><h3>BE</h3></a></li>
+      </ul>
+
+      <div class="footer-group">
+        <div class="clock">
+          <h3 id="current-time"></h3>
+          <h3>NEED SOME COFFEE<br>PARIS, FRANCE</h3>
+        </div>
+
+        <nav class="links1" aria-label="Liens de bas de page">
+          <ul>
             <li><a href="index.html"><h3>WORK</h3></a></li>
+            <li><a href="contact.html"><h3>CONTACT</h3></a></li>
             <li><a href="about.html"><h3>ABOUT</h3></a></li>
+          </ul>
         </nav>
-    </section>
-    
-    <section class="projets">
-        <div class="blank">
-            <h3 class="download">
-                <a href="Download/FAUCHER_Gaetan_PORTFOLIO.pdf" download="FAUCHER_Gaetan_PORTFOLIO.pdf">DOWNLOAD THE PORTFOLIO</a><br>
-                <a href="Download/FAUCHER_Gaetan_CV.pdf" download="FAUCHER_Gaetan_CV.pdf">DOWNLOAD THE CURRICULUM VITAE</a><br>
-                <a href="Download/FAUCHER_Gaetan.zip" download="FAUCHER_Gaetan.zip">DOWNLOAD ALL</a>
-            </h3>
-        </div>
-        <div class="projets-container">
-            <div class="projet villette">
-                <a href="villette.html">
-                    <div class="description">
-                        <h2>CINEMA VILLETTE</h2>
-                        <h3>VISUAL IDENTITY</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_villette_1.jpg"
-                            alt="Aperçu du site internet du cinéma en plein air de la Villette">
-                        <img src="IMAGES/vignette/VIGNETTE_villette_2.jpg"
-                            alt="Programmation du cinéma en plein air de la Villette">
-                        <img src="IMAGES/vignette/VIGNETTE_villette_3.jpg" alt="tote bag">
-                    </div>
-                </a>
-            </div>
-            <div class="projet habit">
-                <a href="habit.html">
-                    <div class="description">
-                        <h2>HABIT</h2>
-                        <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE-habit_1.jpg" alt="Affiche publicitaire">
-                        <img src="IMAGES/vignette/VIGNETTE-habit_2.jpg" alt="Icône du logo">
-                        <img src="IMAGES/vignette/VIGNETTE-habit_3.jpg" alt="Typographie HABIT">
-                    </div>
-                </a>
-            </div>
-            <div class="projet gigantisme">
-                <a href="gigantisme.html">
-                    <div class="description">
-                        <h2>GIGANTISM</h2>
-                        <h3>ARTITSTIC DIRECTION & EDITION</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_gigantisme_1.jpg" alt="Couvertures du kit">
-                        <img src="IMAGES/vignette/VIGNETTE_gigantisme_2.jpg" alt="Intérieur d'un livret et son marque-page">
-                        <img src="IMAGES/vignette/VIGNETTE_gigantisme_3.jpg" alt="Vue d'ensemble du kit éditorial">
-                    </div>
-                </a>
-            </div>
-            <div class="projet lama">
-                <a href="lama.html">
-                    <div class="description">
-                        <h2>LAMA</h2>
-                        <h3>GRAPHIC DESIGN</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_lama_1.jpg" alt="La planète Mars">
-                        <img src="IMAGES/vignette/VIGNETTE_lama_2.jpg"
-                            alt="Focus technique sur le robot LAMA au Recto du cartel explicatif du Robot LAMA">
-                        <img src="IMAGES/vignette/VIGNETTE_lama_3.jpg"
-                            alt="Focus sur le robot LAMA au Verso du cartel explicatif du Robot LAMA">
-                    </div>
-                </a>
-            </div>
-            <div class="projet memoire">
-                <a href="memoire.html">
-                    <div class="description">
-                        <h2>THESIS</h2>
-                        <h3>STUDY RESEARCH & GRAPHIC DESIGN</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_memoire_1.jpg"
-                            alt="Couverture des trois éditions du mémoire sur le design circulaire dans la mode">
-                        <img src="IMAGES/vignette/VIGNETTE_memoire_2.jpg"
-                            alt="Architecture de l'édition du mémoire sur le design circulaire dans la mode">
-                        <img src="IMAGES/vignette/VIGNETTE_memoire_3.jpg"
-                            alt="Intérieur et rabat du mémoire sur le design circulaire dans la mode">
-                    </div>
-                </a>
-            </div>
-            <div class="projet performance">
-                <a href="worth.html">
-                    <div class="description">
-                        <h2>WORTH</h2>
-                        <h3>GRAPHIC DESIGN & PHOTOGRAPHY</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_performance_1.jpg" alt="Ticket de caisse">
-                        <img src="IMAGES/vignette/VIGNETTE_performance_2.jpg"
-                            alt="Colonne d'exposition vue en contre-plongée">
-                        <img src="IMAGES/vignette/VIGNETTE_performance_3.jpg"
-                            alt="Colonne d'exposition baignée d'une lumière divinatoire">
-                    </div>
-                </a>
-            </div>
-            <div class="projet toh">
-                <a href="toh.html">
-                    <div class="description">
-                        <h2>HOLLAND</h2>
-                        <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_toh_3.jpg" alt="Cartes de visite">
-                        <img src="IMAGES/vignette/VIGNETTE_toh_1.jpg" alt="Affiche format sucette">
-                        <img src="IMAGES/vignette/VIGNETTE_toh_2.jpg" alt="Mockup du compte Instagram">
-                    </div>
-                </a>
-            </div>
-            <div class="projet virgil">
-                <a href="virgil.html">
-                    <div class="description">
-                        <h2>VIRGIL</h2>
-                        <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_virgil_1.jpg"
-                            alt="Publicité format 4x3 dans les couloirs du métros Parisien">
-                        <img src="IMAGES/vignette/VIGNETTE_virgil_2.jpg" alt="Publicité format sucette">
-                        <img src="IMAGES/vignette/VIGNETTE_virgil_3.jpg"
-                            alt="Étiquette en tissus de la collection Émergence">
-                    </div>
-                </a>
-            </div>
-            <div class="projet solar">
-                <a href="solar.html">
-                    <div class="description">
-                        <h2>SOLAR FLOW</h2>
-                        <h3>ARTISTIC DIRECTION & GRAPHIC DESIGN</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE-solar_1.jpg" alt="Affiche campagne publicitaire">
-                        <img src="IMAGES/vignette/VIGNETTE-solar_2.jpg" alt="logo de solar flow">
-                        <img src="IMAGES/vignette/VIGNETTE-solar_3.jpg" alt="panneau solaire flexible">
-                    </div>
-                </a>
-            </div>
-            <div class="projet vacances">
-                <a href="jeux.html">
-                    <div class="description">
-                        <h2>6 VACANCES</h2>
-                        <h3>GRAPHIC DESIGN & NATURAL INK PRODUCTION</h3>
-                    </div>
-                    <div class="aperçu">
-                        <img src="IMAGES/vignette/VIGNETTE_jeux_1.jpg" alt="Déballage du jeux de cartes">
-                        <img src="IMAGES/vignette/VIGNETTE_jeux_2.jpg"
-                            alt="Aperçu aléatoire des cartes du jeux des 6 Vacances">
-                        <img src="IMAGES/vignette/VIGNETTE_jeux_3.jpg" alt="Pioche du jeux des 6 Vacances">
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <footer class="footer">
-        <div class="footer-content">
-            <ul class="links3">
-                <li><a href="www.linkedin.com/in/gaetanfaucher20"><h3>IN</h3></a></li>
-                <li><a href="https://www.instagram.com/fugitif_studio"><h3>IG</h3></a></li>
-                <li><a href="https://www.behance.net/gatanfaucher"><h3>BE </h3></a></li>
-            </ul>
+      </div>
 
-            <div class="footer-group">
-                <div class="clock">
-                <h3 id="current-time"></h3>
-                <h3>NEED SOME COFFEE<br>PARIS, FRANCE</h3>
-                </div>
-                <nav class="links1">
-                <li><a href="index.html"><h3>WORK</h3></a></li>
-                <li><a href="contact.html"><h3>CONTACT</h3></a></li>
-                <li><a href="about.html"><h3>ABOUT</h3></a></li>
-                </nav>
-            </div>
-
-            <nav class="nav4">
-                <h3>©2025 / GAETANFAUCHERPR0@GMAIL.COM <br> DESIGN WORKS & CODING BY GAËTAN FAUCHER</h3>
-                <h3> FONTS :
-                            <a href="https://fraunces.undercase.xyz"> FRAUNCES</a>,
-                            <a href="https://www.fontshare.com/fonts/switzer"> SWITZER</a>
-                </h3>
-            </nav>
-        </div>
-    </footer>
+      <nav class="nav4" aria-label="Crédits">
+        <h3>©2025 / GAETANFAUCHERPR0@GMAIL.COM <br> DESIGN WORKS & CODING BY GAËTAN FAUCHER</h3>
+        <h3> FONTS :
+          <a href="https://fraunces.undercase.xyz" target="_blank" rel="noopener">FRAUNCES</a>,
+          <a href="https://www.fontshare.com/fonts/switzer" target="_blank" rel="noopener">SWITZER</a>
+        </h3>
+      </nav>
+    </div>
+  </footer>
 
 </body>
 </html>

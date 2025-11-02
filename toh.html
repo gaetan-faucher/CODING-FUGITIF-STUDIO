@@ -1,82 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
-    <title>GAËTAN FAUCHER</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <div id="custom-cursor" class="custom-cursor"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
+  <title>GAËTAN FAUCHER</title>
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-    <header class="header">
-        <nav class="nav1">
-            <li class="home-link"><a href="index.html"><h3>GAËTAN FAUCHER</h3></a></li>
-            <div class="bouton-logo">
-                <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de fugitif studio">
-            </div>
-            <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
-        </nav>
-        <!-- Menu Burger Button -->
-        <div class="burger-menu" id="burger-menu" role="button"
-            aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
-        <div class="icon" id="icon" aria-hidden="true">
-            <span class="arm arm--a"></span> <!-- 0°   -->
-            <span class="arm arm--b"></span> <!-- 72°  -->
-            <span class="arm arm--c"></span> <!-- 144° -->
-            <span class="arm arm--d"></span> <!-- 216° -->
-            <span class="arm arm--e"></span> <!-- 288° -->
-        </div>
-        </div>
-        <!-- Mobile Navigation Menu -->
-        <nav class="mobile-nav" id="mobile-nav">
-            <ul>
-                <li><a href="index.html"><h3>WORK</h3></a></li>
-                <li><a href="about.html"><h3>ABOUT</h3></a></li>
-                <li><a href="contact.html"><h3>CONTACT</h3></a></li>
-            </ul>
-        </nav>
-    </header>
-    <div class="progressive-blur">
-        <div class="blur-1"></div>
-        <div class="blur-2"></div>
-        <div class="blur-3"></div>
-        <div class="blur-4"></div>
-        <div class="blur-5"></div>
-        <div class="blur-6"></div>
-        <div class="blur-7"></div>
-        <div class="blur-8"></div>
+  <!-- Curseur personnalisé (doit être dans le body) -->
+  <div id="custom-cursor" class="custom-cursor"></div>
+
+  <header class="header">
+    <nav class="nav1" aria-label="Navigation principale">
+      <!-- Lien accueil -->
+      <a class="home-link" href="index.html"><h3>GAËTAN FAUCHER</h3></a>
+
+      <!-- Logo centré (positionné via CSS existant) -->
+      <div class="bouton-logo">
+        <img class="logo"
+             src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png"
+             alt="logo de Fugitif Studio">
+      </div>
+
+      <!-- Lien contact -->
+      <a class="bouton-contact" href="contact.html"><h3>CONTACT</h3></a>
+    </nav>
+
+    <!-- Bouton Burger (astérisque 5 branches → croix) -->
+    <div class="burger-menu" id="burger-menu" role="button"
+         aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+      <div class="icon" id="icon" aria-hidden="true">
+        <span class="arm arm--a"></span> <!-- 0°   -->
+        <span class="arm arm--b"></span> <!-- 72°  -->
+        <span class="arm arm--c"></span> <!-- 144° -->
+        <span class="arm arm--d"></span> <!-- 216° -->
+        <span class="arm arm--e"></span> <!-- 288° -->
+      </div>
     </div>
-    <section class="top-project-toh">
-        <div class="parallax-bg" style="background-image: url('IMAGES/Projets/toh/COUV_visiting-card.jpg');"></div> <!-- Code parallax -->
-        <nav class="entertainement">
-            <h1>TOH</h1>
-            <div class="project-category">
-                <h3>IDENTITÉ<span class="delete-txt"> <br> VISUELLE</span></h3>
-                <h3>MODE</h3>
-                <h3>TOM VAN DEIJNEN</h3>
-            </div>
-        </nav>
-    </section>
-    <section class="argumentation">
-        <h3>CONTEXT<br><br>
-            Tom van Deijnen, textile repair artisan and specialist in visible mending, based in Brighton (UK), is opening a namesake boutique-workshop. This physical space aims to expand his practice, attract new commissions, and reinforce his position as a credible, recognized maker.
-        </h3>
-        <h3>DIRECTION<br><br>
-            The identity embraces imperfection as a mark of care. Each element carries the trace of time. Frayed textures, disrupted grids, and worn down typography. Rather than hide the process, the design exposes it, inviting the viewer to look closer, read slower, and appreciate the quiet craft behind every stitch.
-        </h3>
-    </section>
-    <div class="tryptique">
-        <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logotype-contrast-black.jpg" alt=""></figure>
-        <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logotype-contrast-white.jpg" alt=""></figure>
-        <figure><img class="big-visual" src="IMAGES/Projets/toh/TOH_mockup_wild-poster-london-street.jpg" alt="Affiche publicitaire"></figure>
-        <figure><img class="tryptique-cover" src="IMAGES/Projets/toh/TOH_poster-baseline-printed-2.jpg" alt="Affiche publicitaire Time passes clothes last"></figure>
-        <figure><img class="tryptique-cover" src="IMAGES/Projets/toh/TOH_poster-baseline-printed-1.jpg" alt="Affiche publicitaire Time passes clothes last"></figure>
-        <figure><img class="tryptique-cover" src="IMAGES/Projets/toh/TOH_poster-baseline-printed-3.jpg" alt="Affiche publicitaire Time passes clothes last"></figure>
-        <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logo-construction.jpg" alt="Architecture du logo"></figure>
-        <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logo-meaning.jpg" alt="Signification du logo"></figure>
+
+    <!-- Menu mobile -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+      <ul>
+        <li><a href="index.html"><h3>WORK</h3></a></li>
+        <li><a href="about.html"><h3>ABOUT</h3></a></li>
+        <li><a href="contact.html"><h3>CONTACT</h3></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="progressive-blur" aria-hidden="true">
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+    <div class="blur-3"></div>
+    <div class="blur-4"></div>
+    <div class="blur-5"></div>
+    <div class="blur-6"></div>
+    <div class="blur-7"></div>
+    <div class="blur-8"></div>
+  </div>
+
+  <section class="top-project-toh">
+    <!-- Parallax BG : compatible data-* (ton script choisit mobile/desktop si fourni) -->
+    <div
+      class="parallax-bg"
+      data-bg-desktop="IMAGES/Projets/toh/COUV_visiting-card.jpg"
+      data-bg-mobile="IMAGES/Projets/toh/COUV_visiting-card.jpg"
+      style="background-image: url('IMAGES/Projets/toh/COUV_visiting-card.jpg');">
     </div>
+
+    <nav class="entertainement" aria-label="En-tête projet">
+      <h1>TOH</h1>
+      <div class="project-category">
+        <h3>IDENTITÉ <span class="delete-txt"><br> VISUELLE</span></h3>
+        <h3>MODE</h3>
+        <h3>TOM VAN DEIJNEN</h3>
+      </div>
+    </nav>
+  </section>
+
+  <section class="argumentation">
+    <h3>
+      CONTEXT<br><br>
+      Tom van Deijnen, textile repair artisan and specialist in visible mending, based in Brighton (UK), is opening a namesake boutique-workshop. This physical space aims to expand his practice, attract new commissions, and reinforce his position as a credible, recognized maker.
+    </h3>
+    <h3>
+      DIRECTION<br><br>
+      The identity embraces imperfection as a mark of care. Each element carries the trace of time. Frayed textures, disrupted grids, and worn down typography. Rather than hide the process, the design exposes it, inviting the viewer to look closer, read slower, and appreciate the quiet craft behind every stitch.
+    </h3>
+  </section>
+
+  <div class="tryptique">
+    <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logotype-contrast-black.jpg" alt="Logotype TOH contraste noir"></figure>
+    <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logotype-contrast-white.jpg" alt="Logotype TOH contraste blanc"></figure>
+    <figure><img class="big-visual" src="IMAGES/Projets/toh/TOH_mockup_wild-poster-london-street.jpg" alt="Affiche publicitaire dans la rue à Londres"></figure>
+    <figure><img class="tryptique-cover" src="IMAGES/Projets/toh/TOH_poster-baseline-printed-2.jpg" alt="Affiche Time passes clothes last (2)"></figure>
+    <figure><img class="tryptique-cover" src="IMAGES/Projets/toh/TOH_poster-baseline-printed-1.jpg" alt="Affiche Time passes clothes last (1)"></figure>
+    <figure><img class="tryptique-cover" src="IMAGES/Projets/toh/TOH_poster-baseline-printed-3.jpg" alt="Affiche Time passes clothes last (3)"></figure>
+    <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logo-construction.jpg" alt="Construction du logo TOH"></figure>
+    <figure><img class="close-up" src="IMAGES/Projets/toh/TOH_logo-meaning.jpg" alt="Signification du logo TOH"></figure>
+  </div>
+
 </body>
 </html>

@@ -16,22 +16,36 @@ document.addEventListener("DOMContentLoaded", () => {
       cursor.style.top = `${e.clientY}px`;
     });
     document.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("mouseenter", () => cursor.classList.add("hover-link"));
-      link.addEventListener("mouseleave", () => cursor.classList.remove("hover-link"));
+      link.addEventListener("mouseenter", () =>
+        cursor.classList.add("hover-link")
+      );
+      link.addEventListener("mouseleave", () =>
+        cursor.classList.remove("hover-link")
+      );
     });
   }
 
-  // 3) Effet voile sur .projets
+  // 3) Effet voile sur .projets — désactivé sur écrans tactiles
   const projetsContainer = document.querySelector(".projets-container");
-  if (projetsContainer) {
+
+  const isTouchDevice = () =>
+    window.matchMedia("(hover: none), (pointer: coarse)").matches;
+
+  if (projetsContainer && !isTouchDevice()) {
     projetsContainer.querySelectorAll(".projet").forEach((projet) => {
-      projet.addEventListener("mouseenter", () => projetsContainer.classList.add("hovering"));
-      projet.addEventListener("mouseleave", () => projetsContainer.classList.remove("hovering"));
+      projet.addEventListener("mouseenter", () =>
+        projetsContainer.classList.add("hovering")
+      );
+      projet.addEventListener("mouseleave", () =>
+        projetsContainer.classList.remove("hovering")
+      );
     });
   }
 
   // 4) Parallax simple
-  const parallaxElements = Array.from(document.querySelectorAll(".parallax-bg"));
+  const parallaxElements = Array.from(
+    document.querySelectorAll(".parallax-bg")
+  );
   if (parallaxElements.length > 0) {
     const onScroll = () => {
       const offset = window.pageYOffset;
@@ -59,26 +73,23 @@ document.addEventListener("DOMContentLoaded", () => {
     setInterval(updateTime, 1000);
   }
 
-  // 6) Bouton burger — astérisque 5 branches → croix (animation robuste)
+  // 6) Bouton burger — astérisque 5 branches → croix
   const btn = document.getElementById("burger-menu");
   const icon = document.getElementById("icon");
   const mobileNav = document.getElementById("mobile-nav");
 
-  // --- Nouvel orchestrateur d'animation ---
-  const ANIM_MS = 340; // doit approx. matcher la durée CSS (transform/clip-path .30-.36s)
+  const ANIM_MS = 340;
   let isAnimating = false;
   let animTimer = null;
 
-  // écouteur transitionend (fin “réelle” d’anim, aller ET retour)
   function attachTransitionEndOnce() {
     if (!icon) return;
     const onEnd = (e) => {
-      // on accepte l’évènement venant de l’icône OU d’un bras .arm
       const ok =
         e.target === icon ||
-        (e.target instanceof HTMLElement && e.target.classList.contains("arm"));
+        (e.target instanceof HTMLElement &&
+          e.target.classList.contains("arm"));
       if (!ok) return;
-
       cleanupAnimation();
     };
     icon.addEventListener("transitionend", onEnd, { once: true });
@@ -101,15 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     btn.addEventListener("click", () => {
-      if (isAnimating) return; // anti double-clic durant l’anim
+      if (isAnimating) return;
       isAnimating = true;
 
       if (icon) {
-        // phase “morphing” (douce), appliquée avant le toggle
         icon.classList.add("morphing");
       }
 
-      // Laisse le navigateur appliquer "morphing" (paint) avant de toggler l'état
       requestAnimationFrame(() => {
         const open = btn.classList.toggle("active");
         btn.setAttribute("aria-expanded", open ? "true" : "false");
@@ -117,14 +126,12 @@ document.addEventListener("DOMContentLoaded", () => {
         if (mobileNav) mobileNav.classList.toggle("active", open);
         document.body.classList.toggle("no-scroll", open);
 
-        // micro “twist” (optionnel)
         if (icon) {
           icon.classList.remove("twist");
-          void icon.offsetWidth; // reflow pour relancer l’anim si clic rapproché
+          void icon.offsetWidth;
           icon.classList.add("twist");
         }
 
-        // écoute propre de fin d’anim + fallback timer
         attachTransitionEndOnce();
         animTimer = setTimeout(cleanupAnimation, ANIM_MS + 80);
       });
@@ -165,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", setVhUnit);
   window.addEventListener("orientationchange", setVhUnit);
 
-  // 8) Ombre de sélection dynamique (optionnel)
+  // 8) Ombre de sélection dynamique
   document.addEventListener("selectionchange", () => {
     const selection = document.getSelection();
     if (!selection || !selection.rangeCount) return;
@@ -182,12 +189,16 @@ document.addEventListener("DOMContentLoaded", () => {
     const comps = textColor.replace(/[^\d,]/g, "").split(",").map(Number);
     const intensity = Math.sqrt(
       0.299 * (comps[0] || 0) ** 2 +
-      0.587 * (comps[1] || 0) ** 2 +
-      0.114 * (comps[2] || 0) ** 2
+        0.587 * (comps[1] || 0) ** 2 +
+        0.114 * (comps[2] || 0) ** 2
     );
-    const shadowColor = intensity > 1 ? "rgba(255,255,255,.5)" : "rgba(0,0,0)";
+    const shadowColor =
+      intensity > 1 ? "rgba(255,255,255,.5)" : "rgba(0,0,0)";
     const blurSize = textSize / 2;
-    document.documentElement.style.setProperty("--selection-shadow", `${blurSize}px ${shadowColor}`);
+    document.documentElement.style.setProperty(
+      "--selection-shadow",
+      `${blurSize}px ${shadowColor}`
+    );
   });
 
   // 9) Numérotation auto des figures
@@ -205,50 +216,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ================================================================
-// 10) Images mobile/desktop (HABIT) — gardé
+// 10) Sélecteur générique : si data-* présents, on choisit l'image adaptée
 // ================================================================
-function updateImagesForMobile() {
-  const isMobile = window.innerWidth <= 768;
-  const swapSrc = (selectorFrom, toSrc) => {
-    const el = document.querySelector(selectorFrom);
-    if (el) el.src = toSrc;
-  };
-  const parallaxBg = document.querySelector(".parallax-bg");
+(function () {
+  const els = document.querySelectorAll(
+    ".parallax-bg[data-bg-desktop], .parallax-bg[data-bg-mobile]"
+  );
+  if (!els.length) return;
 
-  if (isMobile) {
-    swapSrc(
-      '.big-visual[src="IMAGES/Projets/habit/HABIT_font-specimen.jpg"]',
-      "IMAGES/Projets/habit/HABIT_font-specimen-mobile.jpg"
-    );
-    if (parallaxBg)
-      parallaxBg.style.backgroundImage =
-        "url('IMAGES/Projets/habit/HABIT_COUV-double-affiche-mobile.jpg')";
-    swapSrc(
-      '.big-visual[src="IMAGES/Projets/habit/HABIT_signaletique-magasin.jpg"]',
-      "IMAGES/Projets/habit/HABIT_signaletique-magasin-mobile.jpg"
-    );
-    swapSrc(
-      '.big-visual[src="IMAGES/Projets/habit/HABIT_logotype-couleurs.jpg"]',
-      "IMAGES/Projets/habit/HABIT_logotype-couleurs-mobile.jpg"
-    );
-  } else {
-    swapSrc(
-      '.big-visual[src="IMAGES/Projets/habit/HABIT_font-specimen-mobile.jpg"]',
-      "IMAGES/Projets/habit/HABIT_font-specimen.jpg"
-    );
-    if (parallaxBg)
-      parallaxBg.style.backgroundImage =
-        "url('IMAGES/Projets/habit/HABIT_COUV-double-affiche.jpg')";
-    swapSrc(
-      '.big-visual[src="IMAGES/Projets/habit/HABIT_signaletique-magasin-mobile.jpg"]',
-      "IMAGES/Projets/habit/HABIT_signaletique-magasin.jpg"
-    );
-    swapSrc(
-      '.big-visual[src="IMAGES/Projets/habit/HABIT_logotype-couleurs-mobile.jpg"]',
-      "IMAGES/Projets/habit/HABIT_logotype-couleurs.jpg"
-    );
+  function applyResponsiveBg() {
+    const isMobile = window.innerWidth <= 768;
+    els.forEach((el) => {
+      const mobile = el.getAttribute("data-bg-mobile");
+      const desktop = el.getAttribute("data-bg-desktop");
+      const url = isMobile && mobile ? mobile : desktop || mobile;
+      if (url) el.style.backgroundImage = `url('${url}')`;
+    });
   }
-}
 
-window.addEventListener("load", updateImagesForMobile);
-window.addEventListener("resize", updateImagesForMobile);
+  window.addEventListener("load", applyResponsiveBg);
+  window.addEventListener("resize", applyResponsiveBg);
+})();

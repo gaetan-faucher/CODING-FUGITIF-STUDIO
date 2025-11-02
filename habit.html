@@ -1,86 +1,127 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
-    <title>GAËTAN FAUCHER</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <div id="custom-cursor" class="custom-cursor"></div>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="IMAGES/logo/favicon.png"/>
+  <title>GAËTAN FAUCHER</title>
+
+  <!-- CSS & JS -->
+  <link rel="stylesheet" href="styles.css"/>
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-    <header class="header">
-        <nav class="nav1">
-            <li class="home-link"><a href="index.html"><h3>GAËTAN FAUCHER</h3></a></li>
-            <div class="bouton-logo">
-                <img class="logo" src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png" alt="logo de fugitif studio">
-            </div>
-            <li class="bouton-contact"><a href="contact.html"><h3>CONTACT</h3></a></li>
-        </nav>
-        <div class="burger-menu" id="burger-menu" role="button"
-            aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
-        <div class="icon" id="icon" aria-hidden="true">
-            <span class="arm arm--a"></span> <!-- 0° -->
-            <span class="arm arm--b"></span> <!-- 72° -->
-            <span class="arm arm--c"></span> <!-- 144° -->
-            <span class="arm arm--d"></span> <!-- 216° -->
-            <span class="arm arm--e"></span> <!-- 288° -->
-        </div>
-        </div>
+  <!-- Curseur personnalisé (doit être dans le body) -->
+  <div id="custom-cursor" class="custom-cursor"></div>
 
-        <nav class="mobile-nav" id="mobile-nav">
-        <ul>
-            <li><a href="index.html"><h3>WORK</h3></a></li>
-            <li><a href="about.html"><h3>ABOUT</h3></a></li>
-            <li><a href="contact.html"><h3>CONTACT</h3></a></li>
-        </ul>
-        </nav>
-    </header>
-    <div class="progressive-blur">
-        <div class="blur-1"></div>
-        <div class="blur-2"></div>
-        <div class="blur-3"></div>
-        <div class="blur-4"></div>
-        <div class="blur-5"></div>
-        <div class="blur-6"></div>
-        <div class="blur-7"></div>
-        <div class="blur-8"></div>
+  <header class="header">
+    <nav class="nav1" aria-label="Navigation principale">
+      <!-- Lien accueil -->
+      <a class="home-link" href="index.html"><h3>GAËTAN FAUCHER</h3></a>
+
+      <!-- Logo centré (positionné via CSS existant) -->
+      <div class="bouton-logo">
+        <img class="logo"
+             src="IMAGES/logo/FUGITIF-STUDIO_logotype-vertical-condensed-black_simplified.png"
+             alt="logo de Fugitif Studio">
+      </div>
+
+      <!-- Lien contact -->
+      <a class="bouton-contact" href="contact.html"><h3>CONTACT</h3></a>
+    </nav>
+
+    <!-- Bouton Burger (astérisque 5 branches → croix) -->
+    <div class="burger-menu" id="burger-menu" role="button"
+         aria-label="Ouvrir le menu" aria-controls="mobile-nav" aria-expanded="false">
+      <div class="icon" id="icon" aria-hidden="true">
+        <span class="arm arm--a"></span> <!-- 0°   -->
+        <span class="arm arm--b"></span> <!-- 72°  -->
+        <span class="arm arm--c"></span> <!-- 144° -->
+        <span class="arm arm--d"></span> <!-- 216° -->
+        <span class="arm arm--e"></span> <!-- 288° -->
+      </div>
     </div>
-    <section class="top-project-habit">
-        <div class="parallax-bg" style="background-image: url('IMAGES/Projets/habit/HABIT_COUV-double-affiche.jpg');"></div> <!-- Code parallax -->
-        <nav class="entertainement">
-            <h1>Mode <br> circulaire</h1>
-            <div class="project-category">
-                <h3><span class="delete-txt">PROJET DE </span>DIPLÔME</h3>
-                <h3>MODE</h3>
-                <h3>SURCONSOMMATEURS</h3>
-            </div>
-        </nav>
-    </section>
-    <section class="argumentation">
-        <h3>CONTEXT<br><br>
-            In a world where fashion pollutes more than aviation, urgency grows. Circular dreams drown in greenwashing. HABIT. emerges as a quiet resistance—speaking to a generation shaped by excess, yet ready to choose presence over impulse, and care over chaos.
-        </h3>
-        <h3>DIRECTION <br><br>
-            Rooted in ethical clarity, "HABIT." reclaims the codes of minimalism. Frugal visuals, contemplative pace, and raw transparency form a system of trust. Targeting 18–25s, the brand designs not just garments, but sustainable habits for emerging adults.
-        </h3>
-    </section>
-    <div class="tryptique">
-        <figure><video id="myVideo" src="IMAGES/Projets/habit/HABIT_gradient-logotype-baseline.mp4" autoplay playsinline preload="auto"></video></figure>
-        <figure><video src="IMAGES/Projets/habit/HABIT_animation-logotype.mp4" autoplay loop muted playsinline preload="auto"></video></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_sizing.jpg" alt="Logo adaptable"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_etiquette-tissu-bleu.jpg" alt="Étiquette d'un vêtement"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_font-specimen.jpg" alt="Spécimen de la typographie HABIT"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_charte-colorimetrique.jpg" alt="Charte colorimétrique"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_logotype-couleurs.jpg" alt="Fonctionnement du logotype avec la charte colorimétrique"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_Website_1_femme.jpg" alt="Site internet page femme"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_Website_2_homme.jpg" alt="Site internet page homme"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_Website_3_compte.jpg" alt="Site internet page compte"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_Chemise-blanche-logo-brode.jpg" alt="chemise blanche avec une broderie de l'icône de la marque"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_Chemise-blanche-logo-brode_zoom.jpg" alt="chemise blanche avec une broderie de l'icône de la marque"></figure>
-        <figure><img src="IMAGES/Projets/habit/HABIT_signaletique-magasin.jpg" alt="Signalétique"></figure>
+
+    <!-- Menu mobile -->
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+      <ul>
+        <li><a href="index.html"><h3>WORK</h3></a></li>
+        <li><a href="about.html"><h3>ABOUT</h3></a></li>
+        <li><a href="contact.html"><h3>CONTACT</h3></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="progressive-blur" aria-hidden="true">
+    <div class="blur-1"></div>
+    <div class="blur-2"></div>
+    <div class="blur-3"></div>
+    <div class="blur-4"></div>
+    <div class="blur-5"></div>
+    <div class="blur-6"></div>
+    <div class="blur-7"></div>
+    <div class="blur-8"></div>
+  </div>
+
+  <section class="top-project-habit">
+    <!-- Parallax : images responsives via data-attributes (géré par script.js) -->
+    <div class="parallax-bg"
+         data-bg-desktop="IMAGES/Projets/habit/HABIT_COUV-double-affiche.jpg"
+         data-bg-mobile="IMAGES/Projets/habit/HABIT_COUV-double-affiche-mobile.jpg"
+         style="background-image: url('IMAGES/Projets/habit/HABIT_COUV-double-affiche.jpg');">
     </div>
+
+    <nav class="entertainement" aria-label="En-tête projet">
+      <h1>Mode <br> circulaire</h1>
+      <div class="project-category">
+        <h3><span class="delete-txt">PROJET DE </span>DIPLÔME</h3>
+        <h3>MODE</h3>
+        <h3>SURCONSOMMATEURS</h3>
+      </div>
+    </nav>
+  </section>
+
+  <section class="argumentation">
+    <h3>
+      CONTEXT<br><br>
+      In a world where fashion pollutes more than aviation, urgency grows.
+      Circular dreams drown in greenwashing. HABIT. emerges as a quiet resistance, speaking to a generation
+      shaped by excess, yet ready to choose presence over impulse and care over chaos.
+    </h3>
+    <h3>
+      DIRECTION<br><br>
+      Rooted in ethical clarity, "HABIT." reclaims the codes of minimalism.
+      Frugal visuals, contemplative pace, and raw transparency form a system of trust.
+      Targeting 18–25s, the brand designs not just garments, but sustainable habits for emerging adults.
+    </h3>
+  </section>
+
+  <div class="tryptique">
+    <figure>
+      <!-- Autoplay mobile/desktop fiable : muted + playsinline -->
+      <video id="myVideo"
+             src="IMAGES/Projets/habit/HABIT_gradient-logotype-baseline.mp4"
+             autoplay muted playsinline preload="auto"></video>
+    </figure>
+
+    <figure>
+      <video src="IMAGES/Projets/habit/HABIT_animation-logotype.mp4"
+             autoplay loop muted playsinline preload="auto"></video>
+    </figure>
+
+    <figure><img src="IMAGES/Projets/habit/HABIT_sizing.jpg" alt="Logo adaptable"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_etiquette-tissu-bleu.jpg" alt="Étiquette d'un vêtement"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_font-specimen.jpg" alt="Spécimen de la typographie HABIT"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_charte-colorimétrique.jpg" alt="Charte colorimétrique"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_logotype-couleurs.jpg" alt="Fonctionnement du logotype avec la charte colorimétrique"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_Website_1_femme.jpg" alt="Site internet page femme"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_Website_2_homme.jpg" alt="Site internet page homme"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_Website_3_compte.jpg" alt="Site internet page compte"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_Chemise-blanche-logo-brode.jpg" alt="chemise blanche avec une broderie de l'icône de la marque"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_Chemise-blanche-logo-brode_zoom.jpg" alt="chemise blanche avec une broderie de l'icône de la marque"></figure>
+    <figure><img src="IMAGES/Projets/habit/HABIT_signaletique-magasin.jpg" alt="Signalétique"></figure>
+  </div>
+
 </body>
 </html>
