@@ -207,6 +207,16 @@ nav.nav2{ align-items:end; justify-content:space-between; padding: 0 25px 20px; 
 
 .entertainement{ flex-direction:column; width:100%; position:relative; z-index:2; padding: 0 20px 20px; }
 
+.entertainement h1{
+  width: 50vw;
+  font-size: clamp(42px, 12.5vw, 72px);
+  line-height: 0.8;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: manual;
+  text-wrap: balance;
+}
+
 .project-category{ display:flex; align-items:end; justify-content:space-between; padding-top:3vw; gap:10px; width:100%; max-width:700px; }
 
 .argumentation{ display:grid; grid-template-columns:repeat(10,1fr); gap:50px; margin:150px 25px; }
@@ -412,10 +422,8 @@ figure.col-1-12{ grid-column:1/-1; }
   nav.nav1{ padding:3vw; height: initial; }
   .home-link{ display:none; }
 
-  /* ajustement très petits écrans — on ne touche pas au ratio, on retire la hauteur */
   .burger-menu{
     margin-right: 3.5vw;
-    /* height: 37px; ← supprimé */
   }
 
   nav.nav2{ padding-left:3.5vw; padding-right:3.5vw; padding-bottom:3.5vw; }
@@ -427,26 +435,122 @@ figure.col-1-12{ grid-column:1/-1; }
 
   .entertainement{ padding-left:3.5vw; padding-right:3.5vw; padding-bottom:3.5vw; }
 
-  .description{ flex-direction:column; align-items:flex-start; margin:0 0 3.5vw 0; gap:.5vw; width:100%; }
+  .description{
+    flex-direction:column;
+    align-items:flex-start;
+    margin:0 0 3.5vw 0;
+    gap:.5vw;
+    width:100%;
+  }
 
   .ajout-txt{ display:contents; }
   .delete-txt{ display:none; }
 
-  .aperçu{ justify-content:space-between; margin:0 0 .5vw 0; width:100%; height:60px; }
-  .aperçu img{ max-height:none; width:60px; }
+  .aperçu{
+    justify-content:space-between;
+    margin:0 0 .5vw 0;
+    width:100%;
+    height:60px;
+  }
+  .aperçu img{
+    max-height:none;
+    width:60px;
+  }
 
-  .solar a,.memoire a,.performance a,.habit a,.toh a,.gigantisme a,.villette a,.vacances a,.virgil a,.lama a{ flex-direction:column; margin:3.5vw; }
+  .solar a,.memoire a,.performance a,.habit a,.toh a,.gigantisme a,.villette a,.vacances a,.virgil a,.lama a{
+    flex-direction:column;
+    margin:3.5vw;
+  }
 
-  .argumentation{ gap:3.5vw; margin:25vw 3.5vw; flex-direction:column; }
-  .argumentation h3{ grid-column:span 5; }
+  /* --- IMPORTANT : on conserve la grille pour .argumentation --- */
+  .argumentation{
+    display:grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap:3.5vw;
+    margin:25vw 3.5vw;
+  }
 
-  .tryptique, .tryptique-condensed{ gap:3.5vw; padding:0 3.5vw 3.5vw; }
-  .tryptique-cover{ grid-column: span 6; }
+  /* Médias en homothétie et pleine largeur dans la grille (.argumentation) */
+  .argumentation figure,
+  .argumentation img,
+  .argumentation video,
+  .argumentation .big-visual,
+  .argumentation .focus-visual{
+    grid-column: 1 / -1;
+    width:100%;
+    max-width:100%;
+    height:auto;          /* ratio conservé */
+    object-fit: contain;  /* pas d’étirement / pas de crop */
+  }
+
+  /* --- TRYPTIQUES : pleine largeur, homothétique, grid 10 colonnes --- */
+  .tryptique,
+  .tryptique-condensed{
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 3.5vw;
+    padding: 0 3.5vw 3.5vw;
+  }
+
+  /* Tous les éléments des tryptiques occupent la grille complète */
+  .tryptique > *,
+  .tryptique figure,
+  .tryptique figure > *,
+  .tryptique-condensed > *,
+  .tryptique-condensed figure,
+  .tryptique-condensed figure > *{
+    grid-column: 1 / -1;
+  }
+
+  /* Médias des tryptiques : ratio conservé + largeur 100% + rythme vertical */
+  .tryptique img,
+  .tryptique video,
+  .tryptique-condensed img,
+  .tryptique-condensed video{
+    width: 100%;
+    max-width: 100%;
+    height: auto;               /* homothétique */
+    object-fit: contain;        /* jamais étiré/coupé */
+    display: block;
+    margin: 2vw auto;           /* marge verticale équilibrée */
+  }
+
+  /* La cover suit aussi la pleine largeur en mobile */
+  .tryptique-cover{ grid-column: 1 / -1; }
+
   .close-up{ grid-column:1/-1; }
 
   .blank{ margin:9vw 3.5vw; }
   .container{ margin:80px 3.5vw 3.5vw; }
   .contact-link h3{ margin:0 3.5vw 0 0; }
+
+  /* ============================= */
+  /*  UTILITAIRES MOBILE UNIQUEMENT */
+  /* ============================= */
+
+  /* 1) Pleine largeur 1 / -1 quand tu en as besoin */
+  .grid-span-full { grid-column: 1 / -1 !important; }
+
+  /* 2) Médias directs dans la grille (FOCUS) */
+  .focus > img,
+  .focus > video {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 2.5vw auto;   /* marge verticale équilibrée */
+  }
+
+  /* 3) Figures / conteneurs marqués pour occuper toute la grille (FOCUS) */
+  .focus figure.grid-span-full,
+  .focus figure.full {
+    grid-column: 1 / -1;
+    width: 100%;
+    max-width: 100%;
+    margin: 2.5vw auto;
+  }
 }
 
 @media (hover: none) {
